@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>每日待辦</title>
+  <style>
+    body { font-family: sans-serif; max-width: 420px; margin: 40px auto; }
+    input, button { padding: 8px; }
+    li { cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h2>每日待辦</h2>
+  <input id="t" placeholder="輸入任務">
+  <button onclick="add()">加入</button>
+  <ul id="list"></ul>
+
+  <script>
+    function add() {
+      const v = t.value.trim();
+      if (!v) return;
+      const li = document.createElement('li');
+      li.textContent = v;
+      li.onclick = () => li.remove();
+      list.appendChild(li);
+      t.value = '';
+    }
+  </script>
+</body>
+</html>
